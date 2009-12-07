@@ -1,67 +1,115 @@
+"set nocompatible "режим несовместимый с Vi
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
-set number
+set list
+set listchars=tab:>-
+set nu " нумерация строк
+set nocompatible
+set ruler " показывать курсов всегда
+set showcmd " показывать незавершённые команды в статусбаре
+set foldmethod=indent " фолдинг(сворачивание) по отступам
+set incsearch " поиск по набору текста
+" set nohlsearch " отключаем подсветку найденного
 
+" режим редактирования, когда курсор на краю экрана
+set scrolljump=7
+set scrolloff=7
+" no beep
+set novisualbell
+set t_vb= 
+
+" mouse
+set mouse=a
+set mousemodel=popup
+set mousehide " скрывать мышь, когда печатаем
+
+set termencoding=utf-8 " кодировка по умолчанию
+
+" Не выгружать буфер, когда переключаемся на другой
+" Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
+" когда переключаешься между ними
+set hidden
+
+set guioptions-=T
+set ch=1 " высота командной строки
+set autoindent " автоотступ
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+
+set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P "формат строки состояния
+set laststatus=2
+set smartindent " умные отступы (после{)
+
+set fo+=cr " Fix <Enter> for comment
+set sessionoptions=curdir,buffers,tabpages " опции сесссий
+
+"map ^T :w!<CR>:!aspell check %<CR>:e! %<CR>
+
+set spell
+set spelllang=ru,en
+
+set fileencodings=cp1251,usc-bom,utf-8,default,latin1
+
+" выключаем  режим замены
+imap >Ins> <Esc>i
 
 syntax on
-highlight Normal guibg=grey90
-highlight Cursor guibg=Green guifg=NONE
-highlight NonText guibg=grey80
-highlight Constant gui=NONE guibg=grey95
-highlight Special gui=NONE guibg=grey95
+
+colorscheme wombat
+"highlight Normal guibg=grey90
+"highlight Cursor guibg=Green guifg=NONE
+"highlight NonText guibg=grey80
+"highlight Constant gui=NONE guibg=grey95
+"highlight Special gui=NONE guibg=grey95
 
 
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
+"runtime! debian.vim
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
+"=======================
+"=== горячие клавиши ===
+"=======================
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
+" Пробел в нормальном режиме перелистывает страницы
+nmap <Space> <PageDown>
 
+" CTRL-F для omni completion
+map <C-F> <C-X><C-O>
 
-" line enables syntax highlighting by default.
-"syntax on
+" Ctrl+C, Ctrl+V
+vmap <C-C> "+yi
+imap <C-V> <esc>"+gPi
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
+" Shift+Insert (Xterm mode)
+map <S-Insert> <MiddleMouse>
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-"    \| exe "normal! g'\"" | endif
-"endif
+" Поиск и замена слова под курсором
+nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-"if has("autocmd")
-"  filetype plugin indent on
-"endif
+" F5 - просмотр списка буферов
+nmap <F5> <Esc>:BufExplorer<cr>
+vmap <F5> <esc>:BufExplorer<cr>
+imap <F5> <esc><esc>:BufExplorer<cr>
 
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes) in terminals
+" F6 - предыдущий буфер
+map <F6> :bp<cr>
+vmap <F6> <esc>:bp<cr>i
+imap <F6> <esc>:bp<cr>i
 
-" Source a global configuration file if available
-" XXX Deprecated, please move your changes here in /etc/vim/vimrc
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
+" F7 - следующий буфер
+map <F7> :bn<cr>
+vmap <F7> <esc>:bn<cr>i
+imap <F7> <esc>:bn<cr>i
+
+" F8 - список закладок
+map <F8> :MarksBrowser<cr>
+vmap <F8> <esc>:MarksBrowser<cr>
+imap <F8> <esc>:MarksBrowser<cr>
+
+" F12 - обозреватель файлов
+map <F12> :Ex<cr>
+vmap <F12> <esc>:Ex<cr>i
+imap <F12> <esc>:Ex<cr>i
+
+" Парные скобки
+imap [ []<LEFT>
+imap {<CR> {<CR>}<Esc>O
