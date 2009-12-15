@@ -1,11 +1,10 @@
-"set nocompatible "режим несовместимый с Vi
+set nocompatible "режим несовместимый с Vi
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set list
-set listchars=tab:>-
+set listchars=tab:>- " подсветка табуляции
 set nu " нумерация строк
-set nocompatible
 set ruler " показывать курсов всегда
 set showcmd " показывать незавершённые команды в статусбаре
 set foldmethod=indent " фолдинг(сворачивание) по отступам
@@ -25,6 +24,7 @@ set mousemodel=popup
 set mousehide " скрывать мышь, когда печатаем
 
 set termencoding=utf-8 " кодировка по умолчанию
+set fileencodings=usc-bom,utf-8,default,cp1251,latin1
 
 " Не выгружать буфер, когда переключаемся на другой
 " Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
@@ -36,7 +36,7 @@ set ch=1 " высота командной строки
 set autoindent " автоотступ
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P "формат строки состояния
+set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P " формат строки состояния
 set laststatus=2
 set smartindent " умные отступы (после{)
 
@@ -47,8 +47,6 @@ set sessionoptions=curdir,buffers,tabpages " опции сесссий
 
 set spell
 set spelllang=ru,en
-
-set fileencodings=cp1251,usc-bom,utf-8,default,latin1
 
 " выключаем  режим замены
 imap >Ins> <Esc>i
