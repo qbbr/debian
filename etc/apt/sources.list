@@ -1,4 +1,4 @@
-# sources.list for debian
+# /etc/apt/sources.list
 
 # == stable ==
 deb http://mirror.yandex.ru/debian/ lenny main contrib non-free
