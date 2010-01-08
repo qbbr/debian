@@ -5,5 +5,4 @@ total_run_times 0
 use_spacer none
 
 TEXT
-cpu: [${cpu cpu1}% / ${cpu cpu2}%] | mem: [$memperc% ($mem)] | net: [${downspeed eth0}K/s ${upspeed eth0}K/s] | ${time %a %k:%M %d/%b/%Y}
-
+cpu: [${cpu cpu1}% / ${cpu cpu2}% / ${cpu cpu3}% / ${cpu cpu4}%] | mem: [$memperc% ($mem)] | net: [${downspeed eth0}K/s ${upspeed eth0}K/s] | ${time %a %k:%M %d/%b/%Y}
