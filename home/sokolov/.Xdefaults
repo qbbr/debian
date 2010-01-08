@@ -42,7 +42,7 @@ xterm*charClass:			33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48
 ! Blue
 *color4:					rgb:51/60/83
 *color12:					rgb:a2/bb/ff
-! Mangenta
+! Magenta
 *color5:					rgb:ca/6e/ff
 *color13:					rgb:e2/b0/ff
 ! Cyan 
@@ -88,4 +88,4 @@ urxvt*mapAlert:				true
 urxvt*utmpInhibit:			true
 urxvt*urlLauncher:			/usr/bin/google-chrome
 urxvt*matcher.button:		1
-urxvt*background:			#191919
+urxvt*background:			#111111

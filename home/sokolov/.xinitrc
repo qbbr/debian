@@ -1,4 +1,6 @@
+# ~/.xinitrc
+
 conky | while true; read line; do xsetroot -name "$line"; done &
-feh --bg-scale /home/sokolov/.config/dwm.png &
-#wbar -bpress -vbar -pos right -filter 2 -fc 0xffaaaaaa -zoomf 1.5 &
+#exec feh --bg-center /media/hdd2/wallpapers/80\ Sexy\ Girls\ Models\ and\ Celebrities\ Wallpapers/10_1080p.jpg &
+exec /home/sokolov/scrpts/fehbg.sh &
 exec dwm
