@@ -1,3 +1,14 @@
+" trololo #fix ssh > vim > color
+if has("terminfo")
+	let &t_Co=8
+	let &t_Sf="\e[3%p1%dm"
+	let &t_Sb="\e[4%p1%dm"
+else
+	let &t_Co=8
+	let &t_Sf="\e[3%dm"
+	let &t_Sb="\e[4%dm"
+endif
+
 set nocompatible "режим несовместимый с Vi
 set tabstop=4
 set softtabstop=4
@@ -45,7 +56,7 @@ set sessionoptions=curdir,buffers,tabpages " опции сесссий
 
 "map ^T :w!<CR>:!aspell check %<CR>:e! %<CR>
 
-set spell
+"set spell
 set spelllang=ru,en
 
 " выключаем  режим замены
@@ -74,8 +85,8 @@ nmap <Space> <PageDown>
 map <C-F> <C-X><C-O>
 
 " Ctrl+C, Ctrl+V
-vmap <C-C> "+yi
-imap <C-V> <esc>"+gPi
+vmap <C-C> "+y
+imap <C-V> <esc>"+]p
 
 " Shift+Insert (Xterm mode)
 map <S-Insert> <MiddleMouse>
