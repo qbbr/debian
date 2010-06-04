@@ -95,8 +95,8 @@ urxvt*background:			#111111
 ! ==================================================
 xpdf*enableFreetype:		yes
 xpdf*antialias:				yes
-xpdf*foreground:			black
-xpdf*background:			white
+xpdf*foreground:			white
+!xpdf*background:			black
 xpdf*urlCommand:			/usr/bin/google-chrom %s
 
 
@@ -104,21 +104,21 @@ xpdf*urlCommand:			/usr/bin/google-chrom %s
 ! ==================================================
 xcalc*geometry:							200x275
 xcalc.ti.bevel.background:				#729FCF
-xcalc.ti.bevel.screen.background:		#000000
-xcalc.ti.bevel.screen.DEG.background:	#000000
+!xcalc.ti.bevel.screen.background:		#000000
+!xcalc.ti.bevel.screen.DEG.background:	#000000
 xcalc.ti.bevel.screen.DEG.foreground:	white
-xcalc.ti.bevel.screen.GRAD.background:	#000000
+!xcalc.ti.bevel.screen.GRAD.background:	#000000
 xcalc.ti.bevel.screen.GRAD.foreground:	white
-xcalc.ti.bevel.screen.RAD.background:	#000000
+!xcalc.ti.bevel.screen.RAD.background:	#000000
 xcalc.ti.bevel.screen.RAD.foreground:	white
-xcalc.ti.bevel.screen.INV.background:	#000000
+!xcalc.ti.bevel.screen.INV.background:	#000000
 xcalc.ti.bevel.screen.INV.foreground:	Red
-xcalc.ti.bevel.screen.LCD.background:	#000000
+!xcalc.ti.bevel.screen.LCD.background:	#000000
 xcalc.ti.bevel.screen.LCD.foreground:	white
 xcalc.ti.bevel.screen.LCD.shadowWidth:	0
-xcalc.ti.bevel.screen.M.background:		#000000
+!xcalc.ti.bevel.screen.M.background:		#000000
 xcalc.ti.bevel.screen.M.foreground:		white
-xcalc.ti.bevel.screen.P.background:		#000000
+!xcalc.ti.bevel.screen.P.background:		#000000
 xcalc.ti.bevel.screen.P.foreground:		Yellow
 xcalc.ti.Command.foreground:			White
 xcalc.ti.Command.background:			#888888
@@ -144,3 +144,11 @@ xcalc.ti.button34.background:			#516083
 xcalc.ti.button37.background:			#516083
 xcalc.ti.button38.background:			#516083
 xcalc.ti.button39.background:			#516083
+
+
+! xclock
+! ==================================================
+xclock*update:			1
+xclock*analog:			false
+xclock*foreground:		white
+!xclock*background:		black
