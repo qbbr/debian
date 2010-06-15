@@ -1,7 +1,10 @@
 #!/bin/sh
-# rnd wallpapers
-while true;
-do
-   feh --bg-center "$(find /media/hdd2/wallpapers -name *.jpg | shuf -n 1)"
-   sleep 15m
+
+# random  wallpapers
+
+DIR="/media/HDD_2/wallpapers"
+
+while true; do
+	feh --bg-center "$(find $DIR -name *.jpg | shuf -n 1)"
+	sleep 15m
 done &
