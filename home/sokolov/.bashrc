@@ -1,6 +1,9 @@
 # ~/.bashrc
 
-[-z "$PS1" ] && return
+# ssh + linux + X = client $TERM.... zomg
+TERM=xterm
+
+[ -z "$PS1" ] && return
 
 export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 export HISTCONTROL=ignoreboth
@@ -44,6 +47,7 @@ esac
 if [ -x /usr/bin/dircolors ]; then
 	eval "`dircolors -b`"
 	alias ls='ls --color=auto'
+	alias l="ls -la --color | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 
