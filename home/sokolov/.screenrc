@@ -1,0 +1,82 @@
+# ----------------------------------------------------------------------
+# file:     ~/.screenrc
+# author:   Thayer Williams - http://cinderwick.ca
+# modified: July 28, 2008
+# vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=conf:
+# ----------------------------------------------------------------------
+
+# general --------------------------------------------------------------
+
+autodetach on         # autodetach on disconnect/close
+startup_message off   # disable intro msg
+defscrollback 10000    # default scrollback buffer
+vbell off             # toggle visual bell
+vbell_msg "[[[ ding ]]]"
+bell "bell: %n (%t) [%w:%s]^G"
+activity "active: %n (%t) [%w:%s]"
+defutf8 on            # UTF-8 char encoding
+defflow off           # disable flow control
+nethack on            # nethackish status messages
+altscreen on          # restore window contents after a vi session
+
+#  using backticks will likely screw up mouse scrolling because
+#  mouse events often use backticks in their escape codes
+#escape ``            # replace C- escape sequence
+#escape `e            # double-tap backtick toggles screen windows
+
+bindkey -k k; quit    # bind F10 to Screen's quit command
+
+# misc keybinds --------------------------------------------------------
+
+bindkey "^[Od" prev  # change window with ctrl-left
+bindkey "^[Oc" next  # change window with ctrl-right
+
+
+# Window numbering starts at 1 -----------------------------------------
+
+bind c screen 1
+bind 0 select 10
+
+
+# load some apps (last listed will be focused) -------------------------
+
+screen -t htop     10 htop
+screen -t torrents 9  rtorrent
+screen -t music    8  ncmpcpp
+screen -t shell    3
+screen -t mutt     1  mutt
+screen -t shell    2
+
+
+# statusbar ------------------------------------------------------------
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+#hardstatus string '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+
+### from cactus
+#hardstatus string "%{+b Rk}(%{-b g}$LOGNAME@%H%{+b R}) (%{-b g}%C %a%{+b R}) %{-b g} %n %t %h"
+### more examples from the gentoo wiki
+#hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+### yet another example--from Dive Into Mark
+## window-list <nowplaying> <mm/dd/yy> <HH:MM>am/pm
+#caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %1` %m/%d/%y %C:%s%a"
+#caption always "%{=b dw}%{=b dw}[ %{-b dc}%h%{=b dw} ] [ %= %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}%{=b dw}] [%{-b dw} %1`%{=b dw} ]"
+
+#caption always "%{bk}%H%{gk}: screen%{gk} | %{rk}(system load: %l)%{gk} | %-21=%{gk}%D %Y.%m.%d %0c"
+# hardstatus alwayslastline "%{wr}%n%f %t %{kw} | %?%-Lw%?%{wb}%n*%f %t%?(%u)%?%{kw}%?%+Lw%? %{wk}"
+#hardstatus alwayslastline "%?%-Lw%?%{wb}%n*%f %t%?(%u)%?%{kw}%?%+Lw%? %{wk}"
+
+
+# tips & tricks
+#
+# bind 'screen -c /dev/null' to open screen without using .screenrc prefs
+
+
+# experimental stuff ---------------------------------------------------
+
+#termcapinfo rxvt ti@:te@    # supposed to fix mouse scrolling issues (e.g. vim)
+
+

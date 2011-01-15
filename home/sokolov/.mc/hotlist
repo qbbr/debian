@@ -1,0 +1,3 @@
+ENTRY "www" URL "/var/www"
+ENTRY "strg1" URL "/media/strg1/"
+ENTRY "strg2" URL "/media/strg2/"

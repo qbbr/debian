@@ -1,0 +1,4 @@
+#!/bin/bash
+
+x=`tr -cd [:alnum:] < /dev/urandom | head -c32`
+echo ${x:0:10}-${x:10:32}]

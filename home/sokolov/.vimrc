@@ -13,6 +13,7 @@ set nocompatible "режим несовместимый с Vi
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 set list
 set listchars=tab:>- " подсветка табуляции
 set nu " нумерация строк
@@ -71,6 +72,7 @@ colorscheme wombat
 "highlight Constant gui=NONE guibg=grey95
 "highlight Special gui=NONE guibg=grey95
 
+au BufNewFile,BufRead *.less set filetype=less
 
 "runtime! debian.vim
 
@@ -79,14 +81,18 @@ colorscheme wombat
 "=======================
 
 " Пробел в нормальном режиме перелистывает страницы
-nmap <Space> <PageDown>
+"nmap <Space> <PageDown>
 
 " CTRL-F для omni completion
 map <C-F> <C-X><C-O>
 
 " Ctrl+C, Ctrl+V
+map <C-C> "+y
 vmap <C-C> "+y
-imap <C-V> <esc>"+]p
+imap <C-C> "+y
+map <C-V> "+P
+vmap <C-V> <esc>"+pli
+imap <C-V> <esc>"+pli
 
 " Shift+Insert (Xterm mode)
 map <S-Insert> <MiddleMouse>
@@ -121,4 +127,18 @@ imap <F12> <esc>:Ex<cr>i
 
 " Парные скобки
 imap [ []<LEFT>
-imap {<CR> {<CR>}<Esc>O
+imap {<CR> {<CR>}<Esc>0
+
+" NERDTree
+nmap <C-N> :NERDTree<cr>
+vmap <C-N> <esc>:NERDTree<cr>i
+imap <C-N> <esc>:NERDTree<cr>i
+
+nmap <C-B> :NERDTreeClose<cr>
+vmap <C-B> <esc>:NERDTreeClose<cr>i
+imap <C-B> <esc>:NERDTreeClose<cr>i
+
+" php-doc
+inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-D> :call PhpDocSingle()<CR> 
+vnoremap <C-D> :call PhpDocRange()<CR> 

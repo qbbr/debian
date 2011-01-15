@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+
+use warnings;
+
+sub on_sel_grab {
+
+    open my $pipe, '|-:utf8', 'xsel -i -b' or die "can't run xsel: $!";
+    print $pipe $_[0]->selection;
+    close $pipe;
+
+    ()
+}
