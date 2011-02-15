@@ -1,27 +1,17 @@
-# /etc/apt/sources.list
+# 
+# deb cdrom:[Debian GNU/Linux testing _Squeeze_ - Official Snapshot amd64 NETINST Binary-1 20101103-04:35]/ squeeze main
 
-# == stable ==
-deb http://mirror.yandex.ru/debian/ lenny main contrib non-free
-deb-src http://mirror.yandex.ru/debian/ lenny main contrib non-free
+#deb http://mirror.yandex.ru/debian/ squeeze main contrib non-free
+#deb-src http://mirror.yandex.ru/debian/ squeeze main contrib non-free
 
-deb http://security.debian.org/ lenny/updates main
-deb-src http://security.debian.org/ lenny/updates main
+deb http://ftp.ru.debian.org/debian/ squeeze main contrib non-free
+deb-src http://ftp.ru.debian.org/debian/ squeeze main contrib non-free
 
-deb http://volatile.debian.org/debian-volatile lenny/volatile main
-deb-src http://volatile.debian.org/debian-volatile lenny/volatile main
+deb http://security.debian.org/ squeeze/updates main contrib non-free
+deb-src http://security.debian.org/ squeeze/updates main contrib non-free
 
-
-# == testing ==
-deb http://mirror.yandex.ru/debian/ testing main contrib non-free
-deb-src http://mirror.yandex.ru/debian/ testing main contrib non-free
-
-
-# == unstable ==
-#deb http://mirror.yandex.ru/debian/ unstable main contrib non-free
-
-
-# == experimental ==
-#deb http://mirror.yandex.ru/debian/ experimental main contrib non-free
+deb http://ftp.ru.debian.org/debian/ squeeze-updates main contrib non-free
+deb-src http://ftp.ru.debian.org/debian/ squeeze-updates main contrib non-free
 
 
 # == Google software repository ==
@@ -29,33 +19,21 @@ deb-src http://mirror.yandex.ru/debian/ testing main contrib non-free
 deb http://dl.google.com/linux/deb/ stable non-free main
 
 
-# == wine ==
-# wget -O - http://www.lamaresh.net/apt/key.gpg | sudo apt-key add -
-deb http://www.lamaresh.net/apt lenny main
-#deb http://www.lamaresh.net/apt squeeze main
-#deb http://www.lamaresh.net/apt sid main
-
-
-# == backports ==
-# apt-get install debian-backports-keyring
-# OR
-# wget -O - http://backports.org/debian/archive.key | sudo apt-key add -
-deb http://www.backports.org/debian lenny-backports main contrib non-free
-
-
-# == Unofficial Maintainers (lenny/stable bacakports) ==
-# wget http://unofficial.debian-maintainers.org/project/openpgp/archive-key.asc -O - | sudo apt-key add -
-#deb http://unofficial.debian-maintainers.org/ lenny/backports main contrib non-free restricted
-#deb-src http://unofficial.debian-maintaine
-
-
-# == debian-multimedia ==
-# available: stable/testing/unstable/experimental
-# wget http://debian-multimedia.org/gpgkey.pub -O - | sudo apt-key add -
-# deb http://www.debian-multimedia.org lenny main
-deb http://mirror.yandex.ru/debian-multimedia/ stable main
-deb-src http://mirror.yandex.ru/debian-multimedia/ stable main
-
-
 # == skype ==
-deb http://download.skype.com/linux/repos/debian/ stable non-free
+#deb http://download.skype.com/linux/repos/debian/ stable non-free
+
+
+#wine
+deb http://www.lamaresh.net/apt squeeze main
+
+
+#backports
+deb http://backports.debian.org/debian-backports squeeze-backports main
+
+
+deb http://download.virtualbox.org/virtualbox/debian squeeze non-free
+
+
+# chromium
+# sudo aptitude install frickelplatz-archive-keyring frickelplatz-keyring frickelplatz-keyrings
+deb http://frickelplatz.de/debian/ sid main non-free contrib
