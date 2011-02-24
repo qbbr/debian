@@ -73,6 +73,9 @@ colorscheme wombat
 "highlight Special gui=NONE guibg=grey95
 
 au BufNewFile,BufRead *.less set filetype=less
+au BufRead *error.log* setf apachelogs
+au BufRead *access.log* setf httplog
+
 
 "runtime! debian.vim
 
