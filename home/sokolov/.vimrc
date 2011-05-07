@@ -1,25 +1,26 @@
 " trololo #fix ssh > vim > color
 if has("terminfo")
-	let &t_Co=8
-	let &t_Sf="\e[3%p1%dm"
-	let &t_Sb="\e[4%p1%dm"
+    let &t_Co=8
+    let &t_Sf="\e[3%p1%dm"
+    let &t_Sb="\e[4%p1%dm"
 else
-	let &t_Co=8
-	let &t_Sf="\e[3%dm"
-	let &t_Sb="\e[4%dm"
+    let &t_Co=8
+    let &t_Sf="\e[3%dm"
+    let &t_Sb="\e[4%dm"
 endif
 
-set nocompatible "режим несовместимый с Vi
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set list
-set listchars=tab:>- " подсветка табуляции
+set nocompatible " режим несовместимый с Vi
+set tabstop=4 " количество пробелов для табуляции
+set softtabstop=4 " количество пробелов добавляемое при нажатии на клавишу табуляции
+set shiftwidth=4 " количество пробелов в командах отступа, например >>, или <<
+set expandtab " заменить табуляцию на пробелы
+set list " показывать спец-символы
+set listchars=tab:>-,trail:▸ " список спец-символов (eol:<символ_конца_строки>,tab:<начальный_символ_табуляции><последующие_символы_табуляции>,trail:<сивол_пробела_в_конце_строки>,nbsp:<символ_неразрывного_пробела>)
 set nu " нумерация строк
 set ruler " показывать курсов всегда
 set showcmd " показывать незавершённые команды в статусбаре
-set foldmethod=indent " фолдинг(сворачивание) по отступам
+set foldenable!
+"set foldmethod=indent " фолдинг(сворачивание) по отступам
 set incsearch " поиск по набору текста
 " set nohlsearch " отключаем подсветку найденного
 
@@ -28,7 +29,7 @@ set scrolljump=7
 set scrolloff=7
 " no beep
 set novisualbell
-set t_vb= 
+set t_vb=
 
 " mouse
 set mouse=a
@@ -77,6 +78,32 @@ au BufRead *error.log* setf apachelogs
 au BufRead *access.log* setf httplog
 
 
+if has("autocmd")
+    " Enable file type detection
+    filetype on
+
+    " Syntax of these languages is fussy over tabs Vs spaces
+    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+
+function! StripTrailingWhitespaces(command)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    execute a:command
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap _$ :call StripTrailingWhitespaces("%s/\\s\\+$//e")<CR>
+
+
 "runtime! debian.vim
 
 "=======================
@@ -89,13 +116,20 @@ au BufRead *access.log* setf httplog
 " CTRL-F для omni completion
 map <C-F> <C-X><C-O>
 
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
 " Ctrl+C, Ctrl+V
-map <C-C> "+y
-vmap <C-C> "+y
-imap <C-C> "+y
-map <C-V> "+P
-vmap <C-V> <esc>"+pli
-imap <C-V> <esc>"+pli
+"map <C-C> "+y
+"vmap <C-C> "+y
+"imap <C-C> "+y
+"map <C-V> "+P
+"vmap <C-V> <esc>"+pli
+"imap <C-V> <esc>"+pli
 
 " Shift+Insert (Xterm mode)
 map <S-Insert> <MiddleMouse>
@@ -142,6 +176,6 @@ vmap <C-B> <esc>:NERDTreeClose<cr>i
 imap <C-B> <esc>:NERDTreeClose<cr>i
 
 " php-doc
-inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-D> :call PhpDocSingle()<CR> 
-vnoremap <C-D> :call PhpDocRange()<CR> 
+inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i
+nnoremap <C-D> :call PhpDocSingle()<CR>
+vnoremap <C-D> :call PhpDocRange()<CR>
