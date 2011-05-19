@@ -1,4 +1,21 @@
-" trololo #fix ssh > vim > color
+"--------------------------------------------------
+"            ___  ____  ____  ____  _
+"           / _ \| __ )| __ )|  _ \( )___
+"          | | | |  _ \|  _ \| |_) |// __|
+"          | |_| | |_) | |_) |  _ <  \__ \
+"          \__\_\____/|____/|_| \_\ |___/
+"
+"                   _
+"           __   __(_)_ __ ___  _ __ ___
+"           \ \ / /| | '_ ` _ \| '__/ __|
+"           _\ V / | | | | | | | | | (__
+"          (_)\_/  |_|_| |_| |_|_|  \___|
+"
+" Sokolov Innokenty, <sokolov.innokenty@gmail.com>
+"--------------------------------------------------
+
+
+" fix ssh > vim > color
 if has("terminfo")
     let &t_Co=8
     let &t_Sf="\e[3%p1%dm"
@@ -9,67 +26,75 @@ else
     let &t_Sb="\e[4%dm"
 endif
 
-set nocompatible " режим несовместимый с Vi
-set tabstop=4 " количество пробелов для табуляции
-set softtabstop=4 " количество пробелов добавляемое при нажатии на клавишу табуляции
-set shiftwidth=4 " количество пробелов в командах отступа, например >>, или <<
-set expandtab " заменить табуляцию на пробелы
-set list " показывать спец-символы
-set listchars=tab:>-,trail:▸ " список спец-символов (eol:<символ_конца_строки>,tab:<начальный_символ_табуляции><последующие_символы_табуляции>,trail:<сивол_пробела_в_конце_строки>,nbsp:<символ_неразрывного_пробела>)
-set nu " нумерация строк
-set ruler " показывать курсов всегда
-set showcmd " показывать незавершённые команды в статусбаре
-set foldenable!
-"set foldmethod=indent " фолдинг(сворачивание) по отступам
-set incsearch " поиск по набору текста
-" set nohlsearch " отключаем подсветку найденного
-set backup " сохранять резервную копию файла
-set backupdir=~/.vim/backup " сюда
+set nocompatible                            " режим несовместимый с Vi
+set tabstop=4                               " количество пробелов для табуляции
+set softtabstop=4                           " количество пробелов добавляемое при нажатии на клавишу табуляции
+set shiftwidth=4                            " количество пробелов в командах отступа, например >>, или <<
+set expandtab                               " заменить табуляцию на пробелы
+set list                                    " показывать спец-символы
+set listchars=tab:>-,trail:▸                " список спец-символов (eol:<символ_конца_строки>,tab:<начальный_символ_табуляции><последующие_символы_табуляции>,trail:<сивол_пробела_в_конце_строки>,nbsp:<символ_неразрывного_пробела>)
+set nu                                      " нумерация строк
+set ruler                                   " показывать курсов всегда
+set showcmd                                 " показывать незавершённые команды в статусбаре
 
-" режим редактирования, когда курсор на краю экрана
-set scrolljump=7
-set scrolloff=7
-" no beep
-set novisualbell
+set foldenable!                             " выключаем фолдинг(сворачивание)
+" set foldmethod=indent                       " фолдинг по отступам
+
+set incsearch                               " поиск по набору текста
+" set nohlsearch                              " отключаем подсветку найденного
+
+set backup                                  " сохранять резервную копию файла
+set backupdir=~/.vim/backup                 " сюда
+
+set scrolljump=7                            " теперь нет необходимости передвигать курсор к краю экрана, чтобы подняться в режиме редактирования
+set scrolloff=7                             " теперь нет необходимости передвигать курсор к краю экрана, чтобы опуститься в режиме редактирования
+
+set novisualbell                            " выключаем надоедливый "звонок"
 set t_vb=
 
-" mouse
-set mouse=a
-set mousemodel=popup
-set mousehide " скрывать мышь, когда печатаем
+set mouse=a                                 " включаем поддержку мыши
+set mousemodel=popup                        " правая кнопка мыши всплывает меню
+set mousehide                               " скрывать мышь, когда печатаем
 
-set termencoding=utf-8 " кодировка по умолчанию
-set fileencodings=usc-bom,utf-8,default,cp1251,latin1
+set termencoding=utf-8                      " кодировка по умолчанию
+set fileencodings=usc-bom,utf-8,default,    " список кодировок, которые Vim будет перебирать при открытии файла
+set fileencodings+=,cp1251,latin1
+" для явного указания кодировки файла используйте `:e ++enc=koi8-r foo.txt`
 
-" Не выгружать буфер, когда переключаемся на другой
-" Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
+" не выгружать буфер, когда переключаемся на другой
+" это позволяет редактировать несколько файлов в один
+" и тот же момент без необходимости сохранения каждый раз,
 " когда переключаешься между ними
 set hidden
 
 set guioptions-=T
-set ch=1 " высота командной строки
-set autoindent " автоотступ
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+set ch=1                                    " высота командной строки
+set autoindent                              " автоотступ
+set backspace=indent,eol,start
+set whichwrap+=<,>,[,]                      " разрешить переход на новую/предыдущую строку при достижении конца/начала текущей
 
-set statusline=%<%f%h%m%r\ %b\ [%{&ff}\ %{&encoding}]\ %Y\ %n\ %=%03p%%\ [%l,%v]" формат строки состояния
-" set statusline=%<%{&ff}\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%t\ %Y\ %n\ %m%r%h%w\ %{fugitive#statusline()}\ %=%03p%%\ [%04l,%04v]\ %L
-" set statusline=%<%{&ff}\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%t\ %Y\ %n\ %m%r%h%w\ %{fugitive#statusline()}\ %=%{CountLettersInCurrentLine()}\ %03p%%\ [%04l,%04v]\ %L
-
+" строка состояния
+set statusline=
+set statusline+=%2*%-3.3n%0*\               " номер буфера
+set statusline+=%f\                         " название файла
+set statusline+=%h%1*%m%r%w%0*              " флаги
+set statusline+=[%{&encoding},              " кодировка
+set statusline+=%{&fileformat}]             " формат файла
+set statusline+=\ %{strlen(&ft)?&ft:'none'} " тип файла
+set statusline+=\ %{fugitive#statusline()}  " git
+set statusline+=%=                          " выравнивание по правой стороне (align right)
+set statusline+=%2*0x%-8B\                  " текущий символ
+set statusline+=%-10.(%l,%c%V%)\ %<%P       " номер строки, номер столбца]
 set laststatus=2
-set smartindent " умные отступы (после{)
 
-set fo+=cr " Fix <Enter> for comment
-set sessionoptions=curdir,buffers,tabpages " опции сесссий
+set smartindent                             " умные отступы (после{)
+set fo+=cr                                  " Fix <Enter> for comment
+set sessionoptions=curdir,buffers,tabpages  " опции сесссий
 
-"map ^T :w!<CR>:!aspell check %<CR>:e! %<CR>
+" set spell                                   " проверка офографии
+set spelllang=ru,en                         " список языков
 
-"set spell
-set spelllang=ru,en
-
-" выключаем  режим замены
-imap >Ins> <Esc>i
-
-syntax on
+syntax on                                   " подсветка синтаксиса
 
 colorscheme wombat
 "highlight Normal guibg=grey90
@@ -91,7 +116,7 @@ if has("autocmd")
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-    autocmd bufwritepost .vimrc source $MYVIMRC
+    " autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 
@@ -108,12 +133,14 @@ function! StripTrailingWhitespaces(command)
 endfunction
 nmap _$ :call StripTrailingWhitespaces("%s/\\s\\+$//e")<CR>
 
-
 "runtime! debian.vim
 
 "=======================
 "=== горячие клавиши ===
 "=======================
+
+" выключаем  режим замены
+imap >Ins> <Esc>i
 
 " Пробел в нормальном режиме перелистывает страницы
 "nmap <Space> <PageDown>
