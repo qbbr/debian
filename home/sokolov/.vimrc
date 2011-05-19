@@ -23,6 +23,8 @@ set foldenable!
 "set foldmethod=indent " фолдинг(сворачивание) по отступам
 set incsearch " поиск по набору текста
 " set nohlsearch " отключаем подсветку найденного
+set backup " сохранять резервную копию файла
+set backupdir=~/.vim/backup " сюда
 
 " режим редактирования, когда курсор на краю экрана
 set scrolljump=7
@@ -49,7 +51,10 @@ set ch=1 " высота командной строки
 set autoindent " автоотступ
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
-set statusline=%<%f%h%m%r\ %b\ %{&encoding}\ 0x\ \ %l,%c%V\ %P " формат строки состояния
+set statusline=%<%f%h%m%r\ %b\ [%{&ff}\ %{&encoding}]\ %Y\ %n\ %=%03p%%\ [%l,%v]" формат строки состояния
+" set statusline=%<%{&ff}\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%t\ %Y\ %n\ %m%r%h%w\ %{fugitive#statusline()}\ %=%03p%%\ [%04l,%04v]\ %L
+" set statusline=%<%{&ff}\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%t\ %Y\ %n\ %m%r%h%w\ %{fugitive#statusline()}\ %=%{CountLettersInCurrentLine()}\ %03p%%\ [%04l,%04v]\ %L
+
 set laststatus=2
 set smartindent " умные отступы (после{)
 
