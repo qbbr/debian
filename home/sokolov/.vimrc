@@ -41,6 +41,7 @@ set foldenable!                             " выключаем фолдинг(
 " set foldmethod=indent                       " фолдинг по отступам
 
 set incsearch                               " поиск по набору текста
+set ignorecase                              " игнорировать регистр
 " set nohlsearch                              " отключаем подсветку найденного
 
 set backup                                  " сохранять резервную копию файла
@@ -68,6 +69,8 @@ set fileencodings+=,cp1251,latin1
 set hidden
 
 set guioptions-=T
+set guifont=Terminus\ 12                    " шрифт в gvim
+
 set ch=1                                    " высота командной строки
 set autoindent                              " автоотступ
 set backspace=indent,eol,start
