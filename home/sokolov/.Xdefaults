@@ -1,7 +1,7 @@
 ! ==================================================
 ! file:     ~/.Xdefaults
 ! author:   Sokolov Innokenty - qbbr.ru
-! modified: April 28, 2011
+! modified: June 02, 2011
 ! vim:nu:ai:si:ts=4:sw=4:ft=xdefaults:
 ! ==================================================
 
@@ -27,34 +27,32 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 
 ! colors
 ! ==================================================
-*background:                           rgb:11/11/11
-*foreground:                           rgb:ff/ff/ff
+*background:                           #111111
+*foreground:                           #ffffff
 ! Black
-*color0:                               rgb:00/00/00
-*color8:                               rgb:00/00/00
+*color0:                               #000000
+*color8:                               #000000
 ! Red
-*color1:                               rgb:bf/46/46
-*color9:                               rgb:f4/8a/8a
+*color1:                               #bf4646
+*color9:                               #f48a8a
 ! Green
-*color2:                               rgb:67/b2/5f
-*color10:                              rgb:a5/d7/9f
+*color2:                               #67b25f
+*color10:                              #a5d79f
 ! Yellow
-*color3:                               rgb:cf/c4/4e
-*color11:                              rgb:e1/da/84
+*color3:                               #cfc44e
+*color11:                              #e1da84
 ! Blue
 *color4:                               #224488
-!rgb:51/60/83
 *color12:                              #5C81AF
-!rgb:a2/bb/ff
 ! Magenta
-*color5:                               rgb:ca/6e/ff
-*color13:                              rgb:e2/b0/ff
+*color5:                               #ca6eff
+*color13:                              #e2b0ff
 ! Cyan
-*color6:                               rgb:92/b2/f8
-*color14:                              rgb:ba/cd/f8
+*color6:                               #7e9fe9
+*color14:                              #bacdf8
 ! White
-*color7:                               rgb:d5/d5/d5
-*color15:                              rgb:d5/d5/d5
+*color7:                               #d5d5d5
+*color15:                              #d5d5d5
 
 
 ! Xft
@@ -83,10 +81,11 @@ urxvt*geometry:                        100x30
 ! Запускать как логин-шелл, а не суб-шелл текущего
 !urxvt*loginShell:                      true
 urxvt*internalBorder:                  5
+urxvt*transparent:                     true
+urxvt*inheritPixmap:                   true
 urxvt*fading:                          20
 urxvt*shading:                         90
 urxvt*tintColor:                       #111111
-urxvt*inheritPixmap:                   false
 urxvt*depth:                           24
 urxvt*saveLines:                       2000
 urxvt*visualBell:                      true
@@ -97,10 +96,8 @@ urxvt*utmpInhibit:                     true
 urxvt*urlLauncher:                     /usr/bin/chromium-browser
 urxvt*matcher.button:                  1
 urxvt*background:                      #111111
-urxvt*transparent:                     true
 urxvt*tint:                            colour
-urxvt*inheritPixmap:                   true
-urxvt*cutchars:                        "@%&()*,;<>[]{}|'
+!urxvt*cutchars:                        @%&()*,;<>[]{}|
 urxvt*print-pipe:                      cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
 urxvt*perl-ext-common:                 default,clipboard
 

@@ -58,9 +58,9 @@ set mousemodel=popup                        " правая кнопка мыши
 set mousehide                               " скрывать мышь, когда печатаем
 
 set termencoding=utf-8                      " кодировка по умолчанию
-set fileencodings=usc-bom,utf-8,default,    " список кодировок, которые Vim будет перебирать при открытии файла
-set fileencodings+=,cp1251,latin1
+" список кодировок, которые Vim будет перебирать при открытии файла
 " для явного указания кодировки файла используйте `:e ++enc=koi8-r foo.txt`
+set fileencodings=usc-bom,utf-8,default,cp1251,latin1
 
 " не выгружать буфер, когда переключаемся на другой
 " это позволяет редактировать несколько файлов в один
