@@ -1,0 +1,28 @@
+background no
+out_to_console yes
+update_interval 2
+total_run_times 0
+use_spacer none
+double_buffer yes
+
+TEXT
+# cpu
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/cpu.xbm)^fg() ${cpu cpu1}% ^fg(#555555)/^fg() ${cpu cpu2}% ^fg(#555555)/^fg() ${cpu cpu3}% ^fg(#555555)/^fg() ${cpu cpu4}% '
+# cpu temp
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/temp.xbm)^fg() ${execi 10 sensors | tail -n 21 | sed -ne "s/temp1: \+[-+]\([0-9]\+\).*/\1/p"}°C '
+# mem
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/mem.xbm)^fg() ${memperc}% ^fg(#555555)(^fg()$mem^fg(#555555))^fg() '
+# hdd
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/tall.xbm)^fg() ^fg(#555555)home:^fg() ${fs_used_perc /home}%^fg(#555555), dwnlds:^fg() ${fs_used_perc /media/dwnlds}%^fg(#555555), strg1:^fg() ${fs_used_perc /media/strg1}%^fg(#555555), strg2:^fg() ${fs_used_perc /media/strg2}% '
+# wired eth0
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/wired.xbm)^fg() ^fg(#506858)^i(/home/qbbr/sft/dwm/dzen/net_down.xbm)^fg() ${downspeedf eth0} ^fg(#785038)^i(/home/qbbr/sft/dwm/dzen/net_up.xbm)^fg() ${upspeedf eth0} '
+# weather
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/load.xbm)^fg() ^fg(#555555)t°C:^fg() ${execi 1800 /home/qbbr/scrpts/weather.sh 27612 1 t} '
+# skb
+#echo -n '• ^fg(#555555)[^fg()${execi 2 ~/scrpts/skb}^fg(#555555)]^fg()'
+# volume
+echo -n "^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/volume.xbm)^fg() `amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/'`% "
+# mpd
+echo -n '^fg(#224488)^i(/home/qbbr/sft/dwm/dzen/mpd.xbm)^fg() $mpd_artist - $mpd_title '
+
+echo

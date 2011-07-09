@@ -48,6 +48,18 @@
  "~/scrpts/changevol -t"
    Control + KP_Subtract
 
+# mpd next
+ "mpc next"
+   Control + KP_Right
+
+# mpd prev
+ "mpc prev"
+   Control + KP_Left
+
+# mpd toggle
+ "mpc toggle"
+   Control + KP_Begin
+
 # slock
  "slock"
     Control + Pause

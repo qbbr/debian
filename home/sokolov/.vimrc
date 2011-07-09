@@ -119,6 +119,11 @@ if has("autocmd")
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+
     " autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 

@@ -2,17 +2,11 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
-//static const char normbordercolor[] = "#0D0D0F";
-//static const char normbgcolor[]     = "#0D0D0F";
-//static const char normfgcolor[]     = "#FFFFFF";
-//static const char selbordercolor[]  = "#A4C639";
-//static const char selbgcolor[]      = "#A4C639";
-//static const char selfgcolor[]      = "#0D0D0F";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#101010";
-static const char normfgcolor[]     = "#777777";
-static const char selbordercolor[]  = "#224488";
-static const char selbgcolor[]      = "#224488";
+static const char normbordercolor[] = "#cccccc";
+static const char normbgcolor[]     = "#cccccc";
+static const char normfgcolor[]     = "#000000";
+static const char selbordercolor[]  = "#0066ff";
+static const char selbgcolor[]      = "#0066ff";
 static const char selfgcolor[]      = "#ffffff";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -32,11 +26,13 @@ static const Rule rules[] = {
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
+#include "grid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "HHH",      grid },
 };
 
 /* key definitions */
@@ -52,11 +48,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
+static const char *termcmd[]  = { "uxterm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_F2,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
