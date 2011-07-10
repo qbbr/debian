@@ -1,9 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 export EDITOR=vim
 export VISUAL=vim
+
 if [ -z "$DISPLAY" ]; then
 	export BROWSER="links '%s' &"
 else
@@ -60,7 +59,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] $ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -89,7 +88,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias xclip='xclip -selection c'
+alias xclip='xclip -sel clip'
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
@@ -147,3 +146,5 @@ extract () {
         echo "'$1' is not a valid file"
     fi
 }
+
+umask 002

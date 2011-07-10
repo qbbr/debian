@@ -1,15 +1,19 @@
 Package: *
-Pin: release a=stable
+Pin: release a=wheezy
 Pin-Priority: 700
 
 Package: *
-Pin: release a=testing
-Pin-Priority: 650
-
-Package: *
 Pin: release a=unstable
-Pin-Priority: 600
+Pin-Priority: 100
 
 Package: *
-Pin: release a=experimental
-Pin-Priority: 550
+Pin: release a=wheezy-backports
+Pin-Priority: 200
+
+Package: *
+Pin: release a=squeeze-backports
+Pin-Priority: 150
+
+Package: *
+Pin: release a=sid
+Pin-Priority: 100

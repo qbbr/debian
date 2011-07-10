@@ -1,39 +1,54 @@
-# 
-# deb cdrom:[Debian GNU/Linux testing _Squeeze_ - Official Snapshot amd64 NETINST Binary-1 20101103-04:35]/ squeeze main
+# DEBIAN
+deb http://ftp.debian.org/debian/ wheezy contrib main non-free
+deb-src http://ftp.debian.org/debian/ wheezy contrib main non-free
 
-#deb http://mirror.yandex.ru/debian/ squeeze main contrib non-free
-#deb-src http://mirror.yandex.ru/debian/ squeeze main contrib non-free
 
-deb http://ftp.ru.debian.org/debian/ squeeze main contrib non-free
-deb-src http://ftp.ru.debian.org/debian/ squeeze main contrib non-free
+# DEBIAN SECURITY
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
 
-deb http://security.debian.org/ squeeze/updates main contrib non-free
-deb-src http://security.debian.org/ squeeze/updates main contrib non-free
 
-deb http://ftp.ru.debian.org/debian/ squeeze-updates main contrib non-free
-deb-src http://ftp.ru.debian.org/debian/ squeeze-updates main contrib non-free
+deb http://ftp.debian.org/debian/ sid contrib main non-free
+deb-src http://ftp.debian.org/debian/ sid contrib main non-free
 
+
+# DEBIAN BACKPORTS
+#deb http://backports.debian.org/debian-backports stable-backports main contrib non-free
+#deb-src http://backports.debian.org/debian-backports stable-backports main contrib non-free
+
+
+# DEBIAN MULTIMEDIA
+# hier muss vorher folgender befehl ausgefuehrt werden
+# gpg --keyserver pgp.mit.edu --recv-keys 1F41B907
+# gpg --armor --export 1F41B907 | sudo apt-key add -
+#deb http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ stable main non-free
+#deb-src http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ stable main
+
+
+# WINE-HQ
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget http://www.lamaresh.net/apt/key.gpg -O - | sudo apt-key add -
+#deb http://www.lamaresh.net/apt wheezy main
+
+
+# VIRTUALBOX
+# hier muss vorher folgender befehl ausgefuehrt werden
+# wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O - | sudo apt-key add -
+#deb http://download.virtualbox.org/virtualbox/debian wheezy contrib non-free
+deb http://download.virtualbox.org/virtualbox/debian squeeze contrib non-free
 
 # == Google software repository ==
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-deb http://dl.google.com/linux/deb/ stable non-free main
+#deb http://dl.google.com/linux/deb/ testing non-free main
 
 
 # == skype ==
 #deb http://download.skype.com/linux/repos/debian/ stable non-free
 
 
-#wine
-deb http://www.lamaresh.net/apt squeeze main
-
-
-#backports
-deb http://backports.debian.org/debian-backports squeeze-backports main
-
-
-deb http://download.virtualbox.org/virtualbox/debian squeeze non-free
-
-
 # chromium
 # sudo aptitude install frickelplatz-archive-keyring frickelplatz-keyring frickelplatz-keyrings
-deb http://frickelplatz.de/debian/ sid main non-free contrib
+#deb http://frickelplatz.de/debian/ sid main non-free contrib
+
+# Mozilla
+#deb http://mozilla.debian.net/ squeeze-backports iceweasel-4.0

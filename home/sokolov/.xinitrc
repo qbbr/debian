@@ -5,7 +5,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 
 xset -b # disable bell
 
-#test -x /usr/bin/chromium && /usr/bin/chromium &
+test -x /usr/bin/chromium && /usr/bin/chromium &
 
 #~/scrpts/fehbg.sh &
 numlockx on &
@@ -20,6 +20,6 @@ checkgmail -no_cookies &
 urxvt &
 #urxvt -e rtorrent &
 
-~/scrpts/startdwm
+~/sft/dwm/startdwm
 #DISPLAY=:0.0 dwm &
 #DISPLAY=:0.1 dwm

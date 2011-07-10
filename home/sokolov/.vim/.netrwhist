@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/home/qbbr/.vim'
 let g:netrw_dirhist_2='/var/www/domelreal/www/static'
 let g:netrw_dirhist_3='/var/www/q-cms/web/static/modules/cp'
 let g:netrw_dirhist_4='/var/www/test.local/test'
 let g:netrw_dirhist_5='/var/www/vesta-baby/htdocs/etc/img/cache'
+let g:netrw_dirhist_6='/home/qbbr'

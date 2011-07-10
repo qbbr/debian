@@ -8,14 +8,14 @@
 ## set it in order to make tag editor and renaming files work properly
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/media/HDD_1/music"
+mpd_music_dir = "/media/strg1/music"
 #mpd_connection_timeout = "5"
-#mpd_crossfade_time = "5"
+mpd_crossfade_time = "0"
 
 ##### delays #####
 ## delay after playlist highlighting will be disabled (0 = don't disable)
 #
-#playlist_disable_highlight_delay = "5"
+playlist_disable_highlight_delay = "0"
 #
 ## defines how long various messages are supposed to be visible
 #
@@ -72,7 +72,7 @@ song_list_format = "{%a - }{%t}|{$8%f$9}%r{$3(%l)$9}"
 #selected_item_suffix = "$9"
 ## colors are not supported for below veriables
 song_status_format = "{(%l) }{%a - }{%t}|{%f}"
-#song_window_title_format = "{%a - }{%t}|{%f}"
+song_window_title_format = "ncmpcpp"
 
 ##### columns settings #####
 ##
@@ -107,7 +107,7 @@ fancy_scrolling = "yes"
 #ncmpc_like_songs_adding = "no" (enabled - add/remove, disabled - always add)
 #display_screens_numbers_on_start = "yes"
 clock_display_seconds = "yes"
-enable_window_title = "yes"
+enable_window_title = "no"
 
 ##### colors definitions #####
 colors_enabled = "yes"

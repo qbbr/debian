@@ -3,7 +3,7 @@
 
 include config.mk
 
-SRC = dmenu.c
+SRC = dmenu.c draw.c
 OBJ = ${SRC:.c=.o}
 
 all: options dmenu
@@ -15,14 +15,10 @@ options:
 	@echo "CC       = ${CC}"
 
 .c.o:
-	@echo CC $<
-	@${CC} -c ${CFLAGS} $<
+	@echo CC -c $<
+	@${CC} -c $< ${CFLAGS}
 
-${OBJ}: config.h config.mk
-
-config.h:
-	@echo creating $@ from config.def.h
-	@cp config.def.h $@
+${OBJ}: config.mk
 
 dmenu: ${OBJ}
 	@echo CC -o $@
@@ -35,13 +31,13 @@ clean:
 dist: clean
 	@echo creating dist tarball
 	@mkdir -p dmenu-${VERSION}
-	@cp -R LICENSE Makefile README config.mk dmenu.1 config.def.h dmenu_path dmenu_run ${SRC} dmenu-${VERSION}
+	@cp LICENSE Makefile README config.mk dmenu.1 draw.h dmenu_path dmenu_run ${SRC} dmenu-${VERSION}
 	@tar -cf dmenu-${VERSION}.tar dmenu-${VERSION}
 	@gzip dmenu-${VERSION}.tar
 	@rm -rf dmenu-${VERSION}
 
 install: all
-	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
+	@echo installing executables to ${DESTDIR}${PREFIX}/bin
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
 	@cp -f dmenu dmenu_path dmenu_run ${DESTDIR}${PREFIX}/bin
 	@chmod 755 ${DESTDIR}${PREFIX}/bin/dmenu
@@ -53,9 +49,10 @@ install: all
 	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/dmenu.1
 
 uninstall:
-	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
-	@rm -f ${DESTDIR}${PREFIX}/bin/dmenu ${DESTDIR}${PREFIX}/bin/dmenu_path
-	@rm -f ${DESTDIR}${PREFIX}/bin/dmenu ${DESTDIR}${PREFIX}/bin/dmenu_run
+	@echo removing executables from ${DESTDIR}${PREFIX}/bin
+	@rm -f ${DESTDIR}${PREFIX}/bin/dmenu
+	@rm -f ${DESTDIR}${PREFIX}/bin/dmenu_path
+	@rm -f ${DESTDIR}${PREFIX}/bin/dmenu_run
 	@echo removing manual page from ${DESTDIR}${MANPREFIX}/man1
 	@rm -f ${DESTDIR}${MANPREFIX}/man1/dmenu.1
 

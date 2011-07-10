@@ -48,7 +48,7 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 *color5:                               #ca6eff
 *color13:                              #e2b0ff
 ! Cyan
-*color6:                               #7e9fe9
+*color6:                               #92b2f8
 *color14:                              #bacdf8
 ! White
 *color7:                               #d5d5d5
