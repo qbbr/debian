@@ -34,6 +34,7 @@ set expandtab                               " заменить табуляци�
 set list                                    " показывать спец-символы
 set listchars=tab:>-,trail:▸                " список спец-символов (eol:<символ_конца_строки>,tab:<начальный_символ_табуляции><последующие_символы_табуляции>,trail:<сивол_пробела_в_конце_строки>,nbsp:<символ_неразрывного_пробела>)
 set nu                                      " нумерация строк
+set cursorline                              " подсветка текущей строки
 set ruler                                   " показывать курсов всегда
 set showcmd                                 " показывать незавершённые команды в статусбаре
 
@@ -92,9 +93,9 @@ set laststatus=2
 
 set smartindent                             " умные отступы (после{)
 set fo+=cr                                  " Fix <Enter> for comment
-set sessionoptions=curdir,buffers,tabpages  " опции сесссий
+set sessionoptions=curdir,buffers,tabpages  " опции сессий
 
-" set spell                                   " проверка офографии
+" set spell                                   " проверка орфографии
 set spelllang=ru,en                         " список языков
 
 syntax on                                   " подсветка синтаксиса
@@ -219,3 +220,9 @@ imap <C-B> <esc>:NERDTreeClose<cr>i
 inoremap <C-D> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-D> :call PhpDocSingle()<CR>
 vnoremap <C-D> :call PhpDocRange()<CR>
+
+" run file with PHP CLI (CTRL-M)
+:autocmd FileType php noremap <C-M> :w!<CR>:!/usr/bin/php %<CR>
+
+" PHP parser check (CTRL-L)
+:autocmd FileType php noremap <C-L> :!/usr/bin/php -l %<CR>
