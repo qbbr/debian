@@ -96,7 +96,7 @@ initdc(void) {
 	DC *dc;
 
 	if(!setlocale(LC_CTYPE, "") || !XSupportsLocale())
-		fprintf(stderr, "no locale support\n");
+		fputs("no locale support\n", stderr);
 	if(!(dc = calloc(1, sizeof *dc)))
 		eprintf("cannot malloc %u bytes:", sizeof *dc);
 	if(!(dc->dpy = XOpenDisplay(NULL)))
@@ -120,24 +120,23 @@ initfont(DC *dc, const char *fontstr) {
 
 Bool
 loadfont(DC *dc, const char *fontstr) {
-	char *def, **missing;
-	int i, n;
+	char *def, **missing, **names;
+	int i, n = 1;
+	XFontStruct **xfonts;
 
 	if(!*fontstr)
 		return False;
-	if((dc->font.set = XCreateFontSet(dc->dpy, fontstr, &missing, &n, &def))) {
-		char **names;
-		XFontStruct **xfonts;
-
+	if((dc->font.set = XCreateFontSet(dc->dpy, fontstr, &missing, &n, &def)))
 		n = XFontsOfFontSet(dc->font.set, &xfonts, &names);
-		for(i = dc->font.ascent = dc->font.descent = 0; i < n; i++) {
-			dc->font.ascent = MAX(dc->font.ascent, xfonts[i]->ascent);
-			dc->font.descent = MAX(dc->font.descent, xfonts[i]->descent);
-		}
-	}
-	else if((dc->font.xfont = XLoadQueryFont(dc->dpy, fontstr))) {
-		dc->font.ascent = dc->font.xfont->ascent;
-		dc->font.descent = dc->font.xfont->descent;
+	else if((dc->font.xfont = XLoadQueryFont(dc->dpy, fontstr)))
+		xfonts = &dc->font.xfont;
+	else
+		n = 0;
+
+	for(i = 0; i < n; i++) {
+		dc->font.ascent  = MAX(dc->font.ascent,  xfonts[i]->ascent);
+		dc->font.descent = MAX(dc->font.descent, xfonts[i]->descent);
+		dc->font.width   = MAX(dc->font.width,   xfonts[i]->max_bounds.width);
 	}
 	if(missing)
 		XFreeStringList(missing);
@@ -154,10 +153,10 @@ resizedc(DC *dc, unsigned int w, unsigned int h) {
 	if(dc->canvas)
 		XFreePixmap(dc->dpy, dc->canvas);
 
-	dc->canvas = XCreatePixmap(dc->dpy, DefaultRootWindow(dc->dpy), w, h,
-	                           DefaultDepth(dc->dpy, DefaultScreen(dc->dpy)));
 	dc->w = w;
 	dc->h = h;
+	dc->canvas = XCreatePixmap(dc->dpy, DefaultRootWindow(dc->dpy), w, h,
+	                           DefaultDepth(dc->dpy, DefaultScreen(dc->dpy)));
 }
 
 int
