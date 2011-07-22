@@ -99,6 +99,7 @@ set sessionoptions=curdir,buffers,tabpages  " опции сессий
 set spelllang=ru,en                         " список языков
 
 syntax on                                   " подсветка синтаксиса
+filetype on                                 " распознавание типов файлов (~/.vim/filetype.vim)
 
 colorscheme wombat
 "highlight Normal guibg=grey90
@@ -106,28 +107,6 @@ colorscheme wombat
 "highlight NonText guibg=grey80
 "highlight Constant gui=NONE guibg=grey95
 "highlight Special gui=NONE guibg=grey95
-
-au BufNewFile,BufRead *.less set filetype=less
-au BufRead *error.log* setf apachelogs
-au BufRead *access.log* setf httplog
-
-
-if has("autocmd")
-    " Enable file type detection
-    filetype on
-
-    " Syntax of these languages is fussy over tabs Vs spaces
-    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-    autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-
-    " autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
 
 function! StripTrailingWhitespaces(command)
     " Preparation: save last search, and cursor position.
