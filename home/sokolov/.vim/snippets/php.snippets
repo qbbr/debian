@@ -213,6 +213,9 @@ snippet fun
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+##
+# Q-CMS
+##
 # adminController
 snippet admin_controller
 	/**
@@ -237,12 +240,6 @@ snippet client_controller
 	{
 		${3:// code...}
 	}
-# action method
-snippet am
-	public function ${1:index}Action(Q_Request $request)
-	{
-		${2:// code...}
-	}
 # return html
 snippet r_html
 	return new Q_Response(
@@ -254,3 +251,61 @@ snippet r_html
 # return json
 snippet r_json
 	return new Q_JsonResponse(${1});
+##
+# Symfony2
+##
+# action method
+snippet am
+	public function ${1:index}Action()
+	{
+		${2:// code...}
+	}
+# return array
+snippet ra
+	return array(${1});
+# get service
+snippet get
+	$this->get('${1:service}')${2}
+# get entity manager
+snippet em
+	$this->getDoctrine()->getEntityManager();${1}
+# Annotations:
+#
+# @Template
+snippet @t
+	@Template()${1}
+# @Route
+snippet @r
+	@Route("${1}", name="${2}")${3}
+# @Method
+snippet @m
+	@Method("${1:POST}")${2}
+# @Cache
+snippet @c
+	@Cache(expires="${1}")${2}
+# ORM annotations:
+#
+# @ORM\Entity
+snippet @oe
+	@ORM\Entity${1}
+# @ORM\Table
+snippet @ot
+	@ORM\Table(name="${1}")${2}
+# @ORM\HasLifecycleCallbacks
+snippet @oh
+	@ORM\HasLifecycleCallbacks()${1}
+# @ORM\Id
+snippet @oi
+	@ORM\Id${1}
+# @ORM\Column
+snippet @oc
+	@ORM\Column(type="${1:string}")${2}
+# @ORM\OneToManu
+snippet @oo2m
+	@ORM\OneToMany(targetEntity="${1}", mappedBy="${2}")${3}
+# @ORM\ManyToOne
+snippet @om2o
+	@ORM\ManyToOne(targetEntity="${1}", inversedBy="${2}")${3}
+# @ORM\JoinColumn
+snippet @oj
+	@ORM\JoinColumn(name="${1}", referencedColumnName="${2:id}")${3}

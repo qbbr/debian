@@ -69,8 +69,12 @@ set fileencodings=usc-bom,utf-8,default,cp1251,latin1
 " когда переключаешься между ними
 set hidden
 
-set guioptions-=T
-set guifont=Terminus\ 12                    " шрифт в gvim
+" GUI
+if has('gui_running')
+    set guioptions-=m                       " remove menu bar
+    set guioptions-=T                       " remove toolbar
+    set guifont=Terminus\ 12                " шрифт в gvim
+endif
 
 set ch=1                                    " высота командной строки
 set autoindent                              " автоотступ
