@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 #define NUMCOLORS 5 // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border    foreground  background
@@ -11,7 +12,6 @@ static const char colors[NUMCOLORS][ColLast][8] = {
    { "#ffffff", "#ffffff", "#224488" },  // \x05 = skb USA
    // add more here
 };
-static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -24,22 +24,23 @@ static const Rule rules[] = {
 	/* class               instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",              NULL,       NULL,       1 << 5,       True,        -1 },
 	{ "Iceweasel",         NULL,       NULL,       1 << 1,       False,       -1 },
+	{ "MPlayer",           NULL,       NULL,       0,            True,        -1 },
 	{ "Chromium",          NULL,       NULL,       1 << 3,       False,       -1 },
 	{ "java-lang-Thread",  NULL,       NULL,       1 << 2,       False,       -1 },
 	{ NULL,                NULL,       "rtorrent", 1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact      = 0.05; /* factor of master area size [0.05..0.95] */
 static const Bool resizehints = False; /* True means respect size hints in tiled resizals */
 
 #include "grid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "HHH",      grid },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "HHH",      grid },
 };
 
 /* key definitions */
