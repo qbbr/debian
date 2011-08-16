@@ -96,6 +96,7 @@ urxvt*utmpInhibit:                     true
 urxvt*urlLauncher:                     /usr/bin/chromium-browser
 urxvt*matcher.button:                  1
 urxvt*background:                      #111111
+urxvt*meta8:                           true
 urxvt*tint:                            colour
 !urxvt*cutchars:                        @%&()*,;<>[]{}|
 urxvt*print-pipe:                      cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
