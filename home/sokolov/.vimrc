@@ -156,7 +156,7 @@ vmap <C-Down> ]egv
 "imap <C-V> <esc>"+pli
 
 " Shift+Insert (Xterm mode)
-map <S-Insert> <MiddleMouse>
+"map <S-Insert> <MiddleMouse>
 
 " Поиск и замена слова под курсором
 nmap ; :%s/\<<c-r>=expand("<cword>")<cr>\>/
