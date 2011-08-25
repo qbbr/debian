@@ -74,32 +74,14 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias l="ls -la --color | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias xclip='xclip -sel clip'
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# ~/.bash_functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -109,42 +91,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
-# ====================
-# === my functions ===
-# ====================
-
-start() {
-    sudo /etc/init.d/$1 start
-}
-
-stop() {
-    sudo /etc/init.d/$1 stop
-}
-
-restart() {
-    sudo /etc/init.d/$1 restart
-}
-
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1   ;;
-            *.tar.gz)  tar xvzf $1   ;;
-            *.bz2)     bunzip2 $1    ;;
-            *.rar)     unrar x $1    ;;
-            *.gz)      gunzip $1     ;;
-            *.tar)     tar xvf $1    ;;
-            *.tbz2)    tar xvjf $1   ;;
-            *.tgz)     tar xvzf $1   ;;
-            *.zip)     unzip $1      ;;
-            *.Z)       uncompress $1 ;;
-            *.7z)      7z x $1       ;;
-            *)         echo "'$1' cannot be extracted via >extract<" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
+if [ -e ~/symfony2-autocomplete.bash ]; then
+    . ~/symfony2-autocomplete.bash
+fi
 
 umask 002
