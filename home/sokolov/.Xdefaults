@@ -1,13 +1,11 @@
-! ==================================================
-! file:     ~/.Xdefaults
-! author:   Sokolov Innokenty - qbbr.ru
-! modified: June 02, 2011
-! vim:nu:ai:si:ts=4:sw=4:ft=xdefaults:
-! ==================================================
+! =========================================================
+! file:   ~/.Xdefaults
+! author: Sokolov Innokenty, <sokolov.innokenty@gmail.com>
+! =========================================================
 
 
 ! xterm
-! ==================================================
+! =========================================================
 xterm*geometry:                        80x25
 xterm*faceName:                        terminus:pixelsize=16
 xterm*boldMode:                        false
@@ -26,7 +24,7 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 
 
 ! colors
-! ==================================================
+! =========================================================
 *background:                           #111111
 *foreground:                           #ffffff
 ! Black
@@ -56,7 +54,7 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 
 
 ! Xft
-! ==================================================
+! =========================================================
 Xft.dpi:                               96
 Xft.antialias:                         true
 Xft.hinting:                           true
@@ -65,7 +63,7 @@ Xft.rgba:                              rgb
 
 
 ! urxvt
-! ==================================================
+! =========================================================
 urxvt*font:                            -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 urxvt*boldFont:                        -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 !urxvt*background:                      #111111
@@ -99,12 +97,12 @@ urxvt*background:                      #111111
 urxvt*meta8:                           true
 urxvt*tint:                            colour
 !urxvt*cutchars:                        @%&()*,;<>[]{}|
-urxvt*print-pipe:                      cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
+!urxvt*print-pipe:                      cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
 urxvt*perl-ext-common:                 default,clipboard
 
 
 ! xpdf
-! ==================================================
+! =========================================================
 xpdf*enableFreetype:                   yes
 xpdf*antialias:                        yes
 !xpdf*foreground:                       white
@@ -114,7 +112,7 @@ xpdf*viKeys:                           on
 
 
 ! xcalc
-! ==================================================
+! =========================================================
 xcalc*geometry:                        200x275
 xcalc.ti.bevel.background:             #729FCF
 xcalc.ti.bevel.screen.DEG.foreground:  white
@@ -151,7 +149,7 @@ xcalc.ti.button39.background:          #516083
 
 
 ! xclock
-! ==================================================
+! =========================================================
 xclock*update:                         1
 xclock*analog:                         false
 xclock*foreground:                     white

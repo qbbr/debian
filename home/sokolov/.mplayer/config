@@ -1,7 +1,7 @@
 # Write your default config options here!
 
 zoom = 1
-#vo = "gl2"
+vo = "x11"
 double = "yes"
 #monitoraspect = "4:3"
 framedrop = "1"
@@ -10,6 +10,7 @@ ontop = "1"
 stop-xscreensaver = "yes"
 softvol = yes
 softvol-max = 400
+nolirc = yes
 
 #ao = "alsa"
 #mixer-channel = "Master"
