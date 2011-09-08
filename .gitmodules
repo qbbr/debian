@@ -1,3 +1,6 @@
 [submodule "home/sokolov/.vim"]
 	path = home/sokolov/.vim
 	url = git://github.com/qbbr/dotvim.git
+[submodule "home/sokolov/sft/ls++"]
+	path = home/sokolov/sft/ls++
+	url = git://github.com/trapd00r/ls--.git
