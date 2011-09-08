@@ -4,3 +4,6 @@
 [submodule "home/sokolov/sft/ls++"]
 	path = home/sokolov/sft/ls++
 	url = git://github.com/trapd00r/ls--.git
+[submodule "home/sokolov/sft/skb"]
+	path = home/sokolov/sft/skb
+	url = git://github.com/polachok/skb.git
