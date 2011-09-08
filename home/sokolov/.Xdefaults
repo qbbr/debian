@@ -66,6 +66,7 @@ Xft.rgba:                              rgb
 ! =========================================================
 urxvt*font:                            -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 urxvt*boldFont:                        -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+urxvt*italicFont:                      -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 !urxvt*background:                      #111111
 !urxvt*foreground:                      #ffffff
 urxvt*scrollBar:                       true

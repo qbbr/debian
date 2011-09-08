@@ -10,19 +10,16 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-"xbindkeys_show"
-  control+shift + q
-
 # vol down
-"~/scrpts/changevol -d 5"
+"~/scrpts/volumechanger.sh -d 5"
   Control + KP_Divide
 
 # vol up
-"~/scrpts/changevol -i 5"
+"~/scrpts/volumechanger.sh -i 5"
   Control + KP_Multiply
 
 # vol toggle mute
- "~/scrpts/changevol -t"
+ "~/scrpts/volumechanger.sh -t"
    Control + KP_Subtract
 
 # mpd next
