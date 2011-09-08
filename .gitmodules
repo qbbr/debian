@@ -7,3 +7,6 @@
 [submodule "home/sokolov/sft/skb"]
 	path = home/sokolov/sft/skb
 	url = git://github.com/polachok/skb.git
+[submodule "home/sokolov/sft/dwm"]
+	path = home/sokolov/sft/dwm
+	url = git://github.com/qbbr/dwm.git
