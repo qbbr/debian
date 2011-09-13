@@ -1,78 +1,45 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
+export TERM=rxvt-unicode-256color # for a colorful rxvt unicode session
 
-export EDITOR=vim
-export VISUAL=vim
+# bash options
+shopt -s autocd             # change to named directory
+shopt -s cdable_vars        # if cd arg is not valid, assumes its a var defining a dir
+#shopt -s cdspell            # autocorrects cd misspellings
+shopt -s checkwinsize       # update the value of LINES and COLUMNS after each command if altered
+shopt -s cmdhist            # save multi-line commands in history as single line
+shopt -s dotglob            # include dotfiles in pathname expansion
+shopt -s expand_aliases     # expand aliases
+shopt -s extglob            # enable extended pattern-matching features
+shopt -s histappend         # append to (not overwrite) the history file
+shopt -s hostcomplete       # attempt hostname expansion when @ is at the beginning of a word
+shopt -s nocaseglob         # pathname expansion will be treated as case-insensitive
 
-if [ -z "$DISPLAY" ]; then
-	export BROWSER="links '%s' &"
-else
-	export BROWSER="google-chrome"
-fi
-
-export PATH=$PATH:/usr/java/jre1.6.0_22/bin
-
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-HISTCONTROL=$HISTCONTROL${HISTCONTROL+:}ignoredups
-# ... or force ignoredups and ignorespace
-HISTCONTROL=ignoreboth
+PS1="┌─[\[\e[36m\]\h\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─╼ "
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+# set vim as default editor
+export EDITOR="vim"
+export FCEDIT="vim"
+export VISUAL=$EDITOR
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] $ '
+# set default browser
+if [ -z "$DISPLAY" ]; then
+    export BROWSER="links"
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    export BROWSER="chromium-browser"
 fi
-unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# set history variables
+export HISTFILESIZE="1000"
+export HISTCONTROL="ignoredups"
+
+# share history across all terminals
+PROMPT_COMMAND="history -a"
+
+# bash completion
+set show-all-if-ambiguous on
 
 # ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
@@ -84,15 +51,21 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+# enable programmable completion features
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# symfony2 console
 if [ -e ~/symfony2-autocomplete.bash ]; then
     . ~/symfony2-autocomplete.bash
 fi
 
-umask 002
+# less colors for man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'       # начало мерцающего стиля
+export LESS_TERMCAP_md=$'\E[01;38;5;11m'  # начало полужирного стиля
+export LESS_TERMCAP_me=$'\E[0m'           # окончание мерцающего или полужирного стиля
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # начало служебной информации
+export LESS_TERMCAP_se=$'\E[0m'           # окончание служебной информации
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # начало подчеркивания
+export LESS_TERMCAP_ue=$'\E[0m'           # окончание подчеркивания
