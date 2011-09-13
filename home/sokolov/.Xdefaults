@@ -25,8 +25,8 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 
 ! colors
 ! =========================================================
-*background:                           #111111
-*foreground:                           #ffffff
+*background:                           #101010
+*foreground:                           #eeeeee
 ! Black
 *color0:                               #000000
 *color8:                               #000000
@@ -58,7 +58,7 @@ xterm*charClass:                       33:48,35:48,37:48,43:48,45-47:48,64:48,95
 Xft.dpi:                               96
 Xft.antialias:                         true
 Xft.hinting:                           true
-Xft.hintstyle:                         full
+Xft.hinstyle:                          hintslight
 Xft.rgba:                              rgb
 
 
@@ -69,6 +69,7 @@ urxvt*font:                            -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 !urxvt*italicFont:                      -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
 !urxvt*background:                      #111111
 !urxvt*foreground:                      #ffffff
+urxvt*buffered:                        true
 urxvt*scrollBar:                       true
 urxvt*scrollTtyKeypress:               true
 urxvt*scrollWithBuffer:                false
@@ -82,9 +83,9 @@ urxvt*geometry:                        100x30
 urxvt*internalBorder:                  5
 urxvt*transparent:                     true
 urxvt*inheritPixmap:                   true
-urxvt*fading:                          20
+urxvt*fading:                          10
 urxvt*shading:                         90
-urxvt*tintColor:                       #111111
+urxvt*tintColor:                       #101010
 urxvt*depth:                           24
 urxvt*saveLines:                       2000
 urxvt*visualBell:                      true
@@ -94,12 +95,13 @@ urxvt*mapAlert:                        true
 urxvt*utmpInhibit:                     true
 urxvt*urlLauncher:                     /usr/bin/chromium-browser
 urxvt*matcher.button:                  1
-urxvt*background:                      #111111
+urxvt*background:                      #101010
 urxvt*meta8:                           true
 urxvt*tint:                            colour
 !urxvt*cutchars:                        @%&()*,;<>[]{}|
 !urxvt*print-pipe:                      cat > $(echo urxvt.dump.`date +'%Y%M%d%H%m%S'`)
-urxvt*perl-ext-common:                 default,clipboard
+urxvt*perl-ext-common:                 default,matcher,clipboard
+!urxvt.matcher.rend.0:                  fg16 RS_Uline
 
 
 ! xpdf

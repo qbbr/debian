@@ -2,22 +2,28 @@ export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-t
 export TERM=rxvt-unicode-256color # for a colorful rxvt unicode session
 
 # bash options
-shopt -s autocd             # change to named directory
-shopt -s cdable_vars        # if cd arg is not valid, assumes its a var defining a dir
-#shopt -s cdspell            # autocorrects cd misspellings
-shopt -s checkwinsize       # update the value of LINES and COLUMNS after each command if altered
-shopt -s cmdhist            # save multi-line commands in history as single line
-shopt -s dotglob            # include dotfiles in pathname expansion
-shopt -s expand_aliases     # expand aliases
-shopt -s extglob            # enable extended pattern-matching features
-shopt -s histappend         # append to (not overwrite) the history file
-shopt -s hostcomplete       # attempt hostname expansion when @ is at the beginning of a word
-shopt -s nocaseglob         # pathname expansion will be treated as case-insensitive
+shopt -s autocd         # change to named directory
+shopt -s cdable_vars    # if cd arg is not valid, assumes its a var defining a dir
+shopt -s cdspell        # autocorrects cd misspellings
+shopt -s checkwinsize   # update the value of LINES and COLUMNS after each command if altered
+shopt -s cmdhist        # save multi-line commands in history as single line
+shopt -s dotglob        # include dotfiles in pathname expansion
+shopt -s expand_aliases # expand aliases
+shopt -s extglob        # enable extended pattern-matching features
+shopt -s histappend     # append to (not overwrite) the history file
+shopt -s hostcomplete   # attempt hostname expansion when @ is at the beginning of a word
+shopt -s nocaseglob     # pathname expansion will be treated as case-insensitive
 
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PS1="┌─[\[\e[36m\]\h\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─╼ "
+if [ "$USER" == "root" ]; then
+    user_color="31m"
+else
+    user_color="36m"
+fi
+PS1="┌─[\[\e[44m\]\h\e[0m\]:\e[${user_color}\]\u\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─╼ "
+unset user_color
 
 # set vim as default editor
 export EDITOR="vim"
