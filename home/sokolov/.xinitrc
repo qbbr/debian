@@ -1,25 +1,45 @@
-# ~/.xinitrc
+#!/bin/sh
 
-# Kill X with C-A-BS
+# kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
 
-xset -b # disable bell
+# disable bell
+xset -b
 
-test -x /usr/bin/chromium && /usr/bin/chromium &
+# chromium
+test -x /usr/bin/chromium-browser && /usr/bin/chromium-browser &
 
-#~/scrpts/fehbg.sh &
 numlockx on &
-wmname LG3D &
-xbindkeys &
-urxvtd -q -f -o # start urxvtd daemon
-feh --bg-center /media/strg2/wallpapers/cats/79117-1920x1080.jpg &
 
-#conky | while true; read line; do xsetroot -name "$line"; done &
+# fix java bug
+wmname LG3D &
+
+# ~/.xbindkeysrc
+xbindkeys &
+
+# start urxvtd daemon
+urxvtd -q -f -o &
+
+# background image
+feh --bg-center ~/dwm.png
+
+# top right tray
+trayer --expand true --widthtype request --transparent true --alpha 0 --tint 0x101010 --edge top --align right --height 18 --margin 216 &
+
+# clipboard
+parcellite &
+
+# conky + dzen2
 ~/scrpts/dzconky &
+
+# ~/.checkgmail/
 checkgmail -no_cookies &
+
 urxvt &
 #urxvt -e rtorrent &
 
-~/sft/dwm/startdwm
+# xinerama
 #DISPLAY=:0.0 dwm &
 #DISPLAY=:0.1 dwm
+
+~/sft/dwm/dwm/startdwm
