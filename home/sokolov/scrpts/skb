@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ `skb -1` = 'USA' ]; then
-    echo '^fg(#506858)USA^fg()';
-else
-    echo '^fg(#785038)RUS^fg()';
-fi;
