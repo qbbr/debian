@@ -20,7 +20,7 @@ err() {
 }
 
 usage() {
-  echo "usage: dvol [option] [argument]"
+  echo "usage: volumechanger.sh [option] [argument]"
   echo
   echo "Options:"
   echo "     -i, --increase - increase volume by \`argument'"
