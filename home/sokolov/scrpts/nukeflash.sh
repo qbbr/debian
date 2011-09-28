@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rm -rf ~.adobe/ ~.macromedia/
+rm -rf ~/.adobe/ ~/.macromedia/

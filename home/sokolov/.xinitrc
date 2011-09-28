@@ -35,7 +35,10 @@ parcellite &
 # ~/.checkgmail/
 checkgmail -no_cookies &
 
-urxvt &
+# dropbox
+~/.dropbox-dist/dropbox &
+
+urxvtc &
 #urxvt -e rtorrent &
 
 # xinerama
