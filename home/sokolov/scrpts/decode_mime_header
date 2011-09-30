@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+
+use utf8;
+use Encode;
+binmode(STDOUT,':utf8');
+my $utf8= Encode::decode('MIME-Header', <STDIN>);
+print $utf8;
