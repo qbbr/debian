@@ -1,0 +1,35 @@
+# ~/.abook/abookrc
+
+# fields:
+field pager = Pager
+field address_lines = Address, list
+field birthday = Birthday, date
+# web
+field facebook = Facebook
+field google_plus = Google+
+field twitter = Twitter
+field jabber = Jabber
+field icq = ICQ
+field skype = Skype
+
+# views:
+view CONTACT = name, nick, email
+view ADDRESS = address_lines, city, state, zip, country
+view PHONE = mobile, phone, workphone, fax
+view WEB = url, facebook, google_plus, twitter, jabber, icq, skype
+view OTHER = birthday, notes
+
+# variables:
+set autosave=true
+set preserve_fields=standard
+set show_all_emails=true
+set index_format=" {name:25} {email:40}  {phone:12|workphone|mobile} {notes}"
+set mutt_command=mutt
+set mutt_return_all_emails=true
+set print_command=lpr
+set www_command=links
+set address_style=eu
+set use_ascii_only=false
+set add_email_prevent_duplicates=false
+set sort_field=nick
+set show_cursor=false
