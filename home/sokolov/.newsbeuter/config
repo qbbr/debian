@@ -1,0 +1,5 @@
+browser links
+auto-reload yes
+reload-time 10
+reload-threads 2
+macro i set browser "feh %u"; open ; set browser "links"
