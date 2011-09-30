@@ -1,0 +1,24 @@
+# colors
+color quoted     yellow   black
+color quoted1    green    black
+color quoted2    magenta  black
+color quoted3    red      black
+color quoted4    blue     black
+color quoted5    red      black
+color quoted6    red      black
+color quoted7    red      black
+
+color signature  blue     black
+
+# items in the reader
+color header     green    default "^from:"
+#color header     green   default "^to:"
+color header     yellow   default "^cc:"
+color header     blue     default "^date:"
+color header     green    default "^subject:"
+
+color index      white    red      ~F  # Flagged
+color index      yellow   default  ~T  # Tagged
+color index      green    default  ~N  # New
+#color index      green    default  ~O  # Old
+color index      red      default  ~D  # Deleted
