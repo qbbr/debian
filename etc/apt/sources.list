@@ -1,35 +1,30 @@
-# DEBIAN
+# DEBIAN TESTING
 deb http://ftp.debian.org/debian/ wheezy contrib main non-free
 deb-src http://ftp.debian.org/debian/ wheezy contrib main non-free
-
 
 # DEBIAN SECURITY
 deb http://security.debian.org/ wheezy/updates main contrib non-free
 deb-src http://security.debian.org/ wheezy/updates main contrib non-free
 
-
+# DEBIAN UNSTABLE
 deb http://ftp.debian.org/debian/ sid contrib main non-free
 deb-src http://ftp.debian.org/debian/ sid contrib main non-free
-
 
 # DEBIAN BACKPORTS
 #deb http://backports.debian.org/debian-backports stable-backports main contrib non-free
 #deb-src http://backports.debian.org/debian-backports stable-backports main contrib non-free
 
-
 # DEBIAN MULTIMEDIA
 # hier muss vorher folgender befehl ausgefuehrt werden
 # gpg --keyserver pgp.mit.edu --recv-keys 1F41B907
 # gpg --armor --export 1F41B907 | sudo apt-key add -
-#deb http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ stable main non-free
-#deb-src http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ stable main
-
+#deb http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ squeeze-backports main non-free
+#deb-src http://debian-multimedia.informatik.uni-erlangen.de/debian-multimedia/ squeeze-backports main
 
 # WINE-HQ
 # hier muss vorher folgender befehl ausgefuehrt werden
 # wget http://www.lamaresh.net/apt/key.gpg -O - | sudo apt-key add -
 #deb http://www.lamaresh.net/apt wheezy main
-
 
 # VIRTUALBOX
 # hier muss vorher folgender befehl ausgefuehrt werden
@@ -37,18 +32,20 @@ deb-src http://ftp.debian.org/debian/ sid contrib main non-free
 #deb http://download.virtualbox.org/virtualbox/debian wheezy contrib non-free
 deb http://download.virtualbox.org/virtualbox/debian squeeze contrib non-free
 
-# == Google software repository ==
+# GOOGLE
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 #deb http://dl.google.com/linux/deb/ testing non-free main
 
-
-# == skype ==
+# SKYPE
 #deb http://download.skype.com/linux/repos/debian/ stable non-free
 
-
-# chromium
+# CHROMIUM
 # sudo aptitude install frickelplatz-archive-keyring frickelplatz-keyring frickelplatz-keyrings
 #deb http://frickelplatz.de/debian/ sid main non-free contrib
 
-# Mozilla
-#deb http://mozilla.debian.net/ squeeze-backports iceweasel-4.0
+# MOZILLA
+deb http://mozilla.debian.net/ squeeze-backports iceweasel-release
+
+# UBUNTU REPOS
+deb http://ppa.launchpad.net/chromium-daily/dev/ubuntu lucid main
+deb http://ppa.launchpad.net/libreoffice/ppa/ubuntu lucid main
