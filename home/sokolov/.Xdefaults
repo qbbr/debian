@@ -6,7 +6,7 @@
 
 ! xterm
 ! =========================================================
-xterm*geometry:                        80x25
+!xterm*geometry:                        80x25
 xterm*faceName:                        terminus:pixelsize=16
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
@@ -83,7 +83,7 @@ urxvt*geometry:                        100x30
 urxvt*internalBorder:                  5
 urxvt*transparent:                     true
 urxvt*inheritPixmap:                   true
-urxvt*fading:                          10
+urxvt*fading:                          30
 urxvt*shading:                         90
 urxvt*tintColor:                       #101010
 urxvt*depth:                           24
@@ -157,3 +157,35 @@ xclock*update:                         1
 xclock*analog:                         false
 xclock*foreground:                     white
 !xclock*background:                     black
+
+
+! xscreensaver
+! =========================================================
+!font settings
+!-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+xscreensaver.Dialog.headingFont:        -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #eeeeee
+xscreensaver.Dialog.background:         #224488
+xscreensaver.Dialog.topShadowColor:     #eeeeee
+xscreensaver.Dialog.bottomShadowColor:  #eeeeee
+xscreensaver.Dialog.Button.foreground:  #eeeeee
+xscreensaver.Dialog.Button.background:  #224488
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #eeeeee
+xscreensaver.Dialog.text.background:    #5C81AF
+xscreensaver.Dialog.internalBorderWidth:0
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    3
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #bf4646
+xscreensaver.passwd.thermometer.background:  #000000
+xscreensaver.passwd.thermometer.width:       10
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:                %I:%M%P %a %b %d, %Y
