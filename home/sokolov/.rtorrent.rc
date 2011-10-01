@@ -69,3 +69,9 @@ hash_interval = 100
 # перед принуждением. Нагруженные системы должны использовать меньшие
 # значени для получения нормальной скорости проверки хеша
 hash_max_tries = 10
+
+# configuration for color patch
+done_fg_color=2
+#done_bg_color=3
+active_fg_color=1
+#active_bg_color=5
