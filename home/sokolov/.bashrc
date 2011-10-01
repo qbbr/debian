@@ -1,4 +1,4 @@
-export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
+#export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
 #export TERM=rxvt-unicode-256color # for a colorful rxvt unicode session
 
 # bash options
@@ -43,6 +43,9 @@ export HISTCONTROL="ignoredups"
 
 # share history across all terminals
 PROMPT_COMMAND="history -a"
+
+# colour coreutils
+eval $(dircolors -b ~/.dir_colors)
 
 # bash completion
 set show-all-if-ambiguous on
