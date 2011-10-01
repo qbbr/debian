@@ -1,7 +1,7 @@
 
 [Midnight-Commander]
 show_backups=1
-kilobyte_si=0
+kilobyte_si=1
 show_dot_files=1
 verbose=1
 mark_moves_down=1
@@ -31,7 +31,7 @@ mouse_close_dialog=0
 fast_refresh=0
 navigate_with_arrows=0
 drop_menus=0
-wrap_mode=1
+wrap_mode=0
 old_esc_mode=0
 cd_symlinks=1
 show_all_if_ambiguous=0
@@ -117,6 +117,14 @@ rxvt=
 linux=
 
 xterm=
+
+xterm-256color=
+
+rxvt-256color=
+
+st-256color=
+
+rxvt-unicode-256color=
 
 [HotlistConfig]
 expanded_view_of_groups=0
