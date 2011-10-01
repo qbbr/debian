@@ -7,7 +7,7 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xset -b
 
 # chromium
-test -x /usr/bin/chromium-browser && /usr/bin/chromium-browser &
+#test -x /usr/bin/chromium-browser && /usr/bin/chromium-browser &
 
 numlockx on &
 
@@ -30,10 +30,13 @@ trayer --expand true --widthtype request --transparent true --alpha 0 --tint 0x1
 parcellite &
 
 # conky + dzen2
-~/scrpts/dzconky &
+#~/scrpts/dzconky &
 
-# ~/.checkgmail/
-checkgmail -no_cookies &
+# dzen
+~/sft/dwm/dzen/startdzen &
+
+# email notifier
+~/scrpts/email_notifier.sh
 
 # dropbox
 ~/.dropbox-dist/dropbox &
