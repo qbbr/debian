@@ -64,7 +64,7 @@ fi
 #Also prevents multiple volume bar instances
 if [ ! -e "$PIPE" ]; then
   mkfifo "$PIPE"
-  (dzen2 -l 1 -x "$XPOS" -y "$YPOS" -w "$PANEL_WIDTH" -fn "$FONT" -bg "$BG" -fg "$FG" -e 'onstart=uncollapse' < "$PIPE" 
+  (dzen2 -l 1 -x "$XPOS" -y "$YPOS" -w "$PANEL_WIDTH" -fn "$FONT" -bg "$BG" -fg "$FG" -e 'onstart=uncollapse' < "$PIPE"
    rm -f "$PIPE") &
 fi
 

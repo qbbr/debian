@@ -48,7 +48,7 @@ class GetVolInfo():
     self.label = "Volume " + self.endlabel
 
 class ProgressBar:
-  
+
   def timeout_callback(self):
     gtk.main_quit()
     return False

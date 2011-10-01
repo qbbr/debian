@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for ((x=0; x<=255; x++));do echo -e "${x}:\033[48;5;${x}mcolor\033[000m";done

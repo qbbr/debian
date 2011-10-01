@@ -1,0 +1,3 @@
+#!/bin/sh
+
+urxvtc -e centerim-utf8 &
