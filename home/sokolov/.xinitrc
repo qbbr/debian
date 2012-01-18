@@ -36,7 +36,7 @@ parcellite &
 ~/sft/dwm/dzen/startdzen &
 
 # email notifier
-~/scrpts/email_notifier.sh
+~/scrpts/email_notifier.sh &
 
 # dropbox
 ~/.dropbox-dist/dropbox &
