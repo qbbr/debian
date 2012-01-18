@@ -19,21 +19,25 @@
   Control + KP_Multiply
 
 # vol toggle mute
- "~/scrpts/volumechanger.sh -t"
-   Control + KP_Subtract
+"~/scrpts/volumechanger.sh -t"
+  Control + KP_Subtract
+
+# vol toggle headphone <-> front
+"amixer set Headphone toggle && amixer set Front toggle"
+  Control + KP_Add
 
 # mpd next
- "mpc next"
-   Control + KP_Right
+"mpc next"
+  Control + KP_Right
 
 # mpd prev
- "mpc prev"
-   Control + KP_Left
+"mpc prev"
+  Control + KP_Left
 
 # mpd toggle
- "mpc toggle"
-   Control + KP_Begin
+"mpc toggle"
+  Control + KP_Begin
 
 # slock
- "slock"
-    Control + Pause
+"slock"
+  Control + Pause
