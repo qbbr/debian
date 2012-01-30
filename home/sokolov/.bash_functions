@@ -39,5 +39,6 @@ mvf() { mv "$@" && goto "$_"; }
 goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
 
 # Simple notes
-n() { $EDITOR ~/.notes/"$*".md ; }
-nls () { tree -CR --noreport ~/.notes | awk '{ if ((NR > 1) gsub(/.md/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }' ;}
+n() { $EDITOR ~/Dropbox/notes/"$*".md ; }
+nrm() { rm -i ~/Dropbox/notes/"$1".md ; }
+nls () { tree -CR --noreport ~/Dropbox/notes/ | awk '{ if ((NR > 1) gsub(/.md/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }' ;}
