@@ -40,4 +40,4 @@ CORE1=`getCoreLoadPercent 1`
 CORE2=`getCoreLoadPercent 2`
 CORE3=`getCoreLoadPercent 3`
 
-echo "${CORE0}% / ${CORE1}% / ${CORE2} / ${CORE3}"
+echo "${CORE0}% / ${CORE1}% / ${CORE2}% / ${CORE3}%"
